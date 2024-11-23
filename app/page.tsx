@@ -1,6 +1,9 @@
-const Home = () => (
-  <h1 className="text-3xl font-black text-light-500">
-    Welcome to the world of next.js
-  </h1>
-);
+const Home = () => {
+  return (
+    <>
+      <h1 className="h1-bold">Welcome to the world of next.js</h1>
+      <h2 className="h2-bold">Hahaha</h2>
+    </>
+  );
+};
 export default Home;
