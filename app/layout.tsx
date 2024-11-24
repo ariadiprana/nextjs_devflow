@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import React from "react";
 
+import Navbar from "@/components/Navbar";
+
 import "./globals.css";
 
 const inter = localFont({
@@ -35,6 +37,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
