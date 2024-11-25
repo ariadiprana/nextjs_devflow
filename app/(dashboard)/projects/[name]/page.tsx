@@ -1,4 +1,4 @@
-export default async function ProjectDetails({ params }) {
+export default async function ProjectDetails({ params }: { params: object }) {
   const { name } = await params;
   return (
     <main>
