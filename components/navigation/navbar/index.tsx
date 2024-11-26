@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import Theme from "./Theme";
+
 const Navbar = () => {
   return (
     <nav className="flex-between background-light900_dark200 shadow-light-300 fixed z-50 w-full gap-5 p-6 sm:px-12 dark:shadow-none">
@@ -24,7 +26,9 @@ const Navbar = () => {
         </p>
       </Link>
       <p>Global Saerch</p>
-      <div className="flex-between gap-5"> Theme </div>
+      <div className="flex-between gap-5">
+        <Theme />
+      </div>
     </nav>
   );
 };
