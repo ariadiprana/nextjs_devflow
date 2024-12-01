@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -22,7 +22,19 @@ const formSchema = z.object({
   }),
 });
 
-const AuthForm = () => {
+interface AuthFormProps<T extends FieldValues> {
+  schema: ZodType<T>;
+  defaultValues: T;
+  onSubmit: (data: T) => Promise<{ success: boolean }>;
+  formType: "SIGN_IN" | "SIGN_UP";
+}
+
+const AuthForm = <T extends FieldValues>({
+  schema,
+  defaultValues,
+  formType,
+  onSubmit,
+}: AuthFormProps<T>) => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,7 +58,9 @@ const AuthForm = () => {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>
+                {field.name === "email" ? "Email Address" : field.name}
+              </FormLabel>
               <FormControl>
                 <Input placeholder="shadcn" {...field} />
               </FormControl>
