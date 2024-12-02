@@ -7,7 +7,7 @@ import { SignInSchema } from "@/lib/validations";
 const SignIn = () => {
   return (
     <>
-      <AuthForm
+      <AuthForm.
         formType="SIGN_IN"
         schema={SignInSchema}
         defaultValues={{ email: "", password: "" }}
