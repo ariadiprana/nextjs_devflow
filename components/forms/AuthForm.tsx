@@ -117,4 +117,5 @@ const AuthForm = <T extends FieldValues>({
     </Form>
   );
 };
+
 export default AuthForm;
